@@ -1,0 +1,69 @@
+/* Reset & Font */
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+body {scroll-behavior:smooth; background:#ffe5d9; text-align:center;}
+
+/* Navbar */
+nav {
+  padding: 15px 30px;
+  display:flex; justify-content:space-between; align-items:center;
+  background:#ffad9b; transition:0.3s; position:fixed; width:100%; z-index:1000;
+}
+nav.scrolled {background:#ff6f61; box-shadow:0 3px 10px rgba(0,0,0,0.2);}
+nav .logo {font-weight:bold; font-size:1.5rem; color:#fff;}
+.nav-links {list-style:none; display:flex; gap:15px;}
+.nav-links li a {color:#fff; text-decoration:none; transition:0.3s;}
+.nav-links li a:hover {transform:scale(1.1);}
+
+/* Hero Section */
+.hero {
+  height:90vh; display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+}
+.hero h1 {font-size:2.5rem; color:#ff6f61; animation:fadeIn 1.5s ease;}
+.hero p {font-size:1.2rem; margin:10px 0; animation:fadeIn 2s ease;}
+.btn {
+  background:#ff6f61; color:#fff; padding:12px 25px; border:none; border-radius:30px;
+  cursor:pointer; animation:buttonBounce 2s infinite;
+}
+.btn:hover {transform:scale(1.1);}
+
+/* Sections */
+section {padding:60px 20px;}
+h2 {color:#ff6f61;}
+.card {
+  display:inline-block; background:#ffc3a0; color:#fff; padding:20px;
+  margin:10px; border-radius:20px; transition:0.3s;
+}
+.card:hover {transform:translateY(-5px);}
+
+/* Floating Shapes */
+.shape {
+  position:absolute; border-radius:50%; z-index:-1; opacity:0.7;
+}
+.square {width:100px; height:100px; background:#ffb9a1; top:120px; left:50px; animation:float 6s ease-in-out infinite;}
+.circle {width:130px; height:130px; background:#ffd1c4; top:300px; right:60px; animation:float 8s ease-in-out infinite;}
+
+@keyframes float {
+  0%,100% {transform:translateY(0);}
+  50% {transform:translateY(-20px);}
+}
+
+@keyframes fadeIn {
+  0% {opacity:0; transform:translateY(-20px);}
+  100% {opacity:1; transform:translateY(0);}
+}
+
+@keyframes buttonBounce {
+  0%,100% {transform:translateY(0);}
+  50% {transform:translateY(-8px);}
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{flex-direction:column; background:#ff6f61; position:absolute; top:60px; right:-100%; width:180px; padding:15px 0; transition:0.3s;}
+  .nav-links.active{right:0;}
+  .nav-links li a{color:#fff; padding:10px 0;}
+  .hero h1 {font-size:2rem;}
+  .hero p {font-size:1rem;}
+  .card {width:80%; margin:10px auto;}
+}
